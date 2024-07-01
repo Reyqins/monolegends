@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MonoLegends - Buy Ranks & Items</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://imgur.com/hKfFHxL.png');
+            background-image: url('fe2f1c4b6741a1b0e0c866df71eedd97.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        main {
+            margin: 2em;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 2em;
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #fff;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin: 0.5em 0;
+            padding: 1em;
+            border-radius: 5px;
+        }
+
+        .rank {
+            background-color: rgba(240, 248, 255, 0.3);
+        }
+
+        .item {
+            background-color: rgba(255, 240, 245, 0.3);
+        }
+
+        .rank-description, .item-description {
+            margin-top: 0.5em;
+            font-size: 0.9em;
+            color: #ddd;
+        }
+
+        .buy-button {
+            display: inline-block;
+            margin-top: 0.5em;
+            padding: 0.5em 1em;
+            background-color: #28a745;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .buy-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MonoLegends - Buy Ranks & Items</h1>
+    </header>
+    <main>
+        <section id="rank-list">
+            <h2>Available Ranks List</h2>
+            <ul id="rank-list-container"></ul>
+        </section>
+        <section id="item-list">
+            <h2>Available Items List</h2>
+            <ul id="item-list-container"></ul>
+        </section>
+    </main>
+    <script>
+        const ranks = [
+        { name: "Donatur", description: "Money 20k/ One week | Land 10k | 3 key legend | Cosmetics random 3", price: "5k" },
+        { name: "Mono VIP", description: "Fly | Feed | Repair | Land 15k | Sethome 3 | 25k/one week | Cosmetics random 7 | Kits Mono vip", price: "10k" },
+        { name: "Mono Super VIP", description: "Fly | Feed | Repair | Heal | Land 50k | Kits SUper Mono | Sethome 5 | Comestics random 15", price: "20k" },
+        { name: "Mono Suprame", description: "Fly | Feed | Repair | Heal | Land 100k | 50k/one week | | Skill all 20 | Kits Supreme Mono | Sethome 10 | Comestics random 20 | 1 SL Free", price: "30k" },
+        { name: "Sultan Mono", description: "Fly | Feed | Repair | Heal | EnderCest | Anvil | Sethome 30 | Skill all 35 | Kits Sultan mono | 250k/one week | land 500k | All comestics | 3 SL free", price: "50k" },
+        { name: "Raja Mono", description: "Tanya Kepada Owner!.", price: "70k" },
+        { name: "Dewa mono", description: "Tanya Kepada Owner!.", price: "90k" },
+        { name: "Costum renk", description: "Tanya Kepada Owner!.", price: "15k" }
+        ];
+
+        const items = [
+            { name: "Kits Mono Vip", description: "Bisa Didapatkan Gratis Dengan Membeli Rank Mono Vip!.", price: "10k" },
+            { name: "Kits Super mono", description: "Bisa Didapatkan Gratis Dengan Membeli Rank Super Mono!.", price: "20k" },
+            { name: "Kits Supreme Mono", description: "Bisa Didapatkan Gratis Dengan Membeli Rank Supreme Mono!.", price: "30k" },
+            { name: "Kits Sultan Mono", description: "Bisa Didapatkan Gratis Dengan Membeli Rank Sultan Mono!.", price: "40k" },
+            { name: "Cosmetics", description: "Bisa Bebas Request!.", price: "1k" },
+            { name: "Skill Up", description: "Bisa Meng Up Skill Kamu!.", price: "1k" },
+            { name: "Armor Darkness", description: "Bisa Membuatmu Kuat Dan Memiliki Amarah Yang Besar!.", price: "20k" },
+            { name: "Armor Supreme", description: "Bisa Membuatmu Kuat Akan Beberapa Serangan!.", price: "25k" },
+            { name: "Armor Yeti", description: "Bisa Membuatmu Kuat Seperti Yeti!.", price: "15k" }
+        ];
+
+        window.onload = function() {
+            const rankListContainer = document.getElementById('rank-list-container');
+            const itemListContainer = document.getElementById('item-list-container');
+
+            ranks.forEach(rank => {
+                const li = document.createElement('li');
+                li.className = 'rank';
+
+                const rankName = document.createElement('h3');
+                rankName.textContent = `${rank.name} - ${rank.price}`;
+
+                const rankDescription = document.createElement('p');
+                rankDescription.className = 'rank-description';
+                rankDescription.textContent = rank.description;
+
+                const buyButton = document.createElement('a');
+                buyButton.href = "https://wa.me/6283892359283";
+                buyButton.className = 'buy-button';
+                buyButton.textContent = "Buy Now";
+
+                li.appendChild(rankName);
+                li.appendChild(rankDescription);
+                li.appendChild(buyButton);
+
+                rankListContainer.appendChild(li);
+            });
+
+            items.forEach(item => {
+                const li = document.createElement('li');
+                li.className = 'item';
+
+                const itemName = document.createElement('h3');
+                itemName.textContent = `${item.name} - ${item.price}`;
+
+                const itemDescription = document.createElement('p');
+                itemDescription.className = 'item-description';
+                itemDescription.textContent = item.description;
+
+                const buyButton = document.createElement('a');
+                buyButton.href = "https://wa.me/6283892359283";
+                buyButton.className = 'buy-button';
+                buyButton.textContent = "Buy Now";
+
+                li.appendChild(itemName);
+                li.appendChild(itemDescription);
+                li.appendChild(buyButton);
+
+                itemListContainer.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
